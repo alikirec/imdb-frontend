@@ -12,6 +12,17 @@ const mockGetMovies = (success = true) => {
   if (success) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
+    mockAxios.get.mockResolvedValueOnce({ data: moviesList });
+    return;
+  }
+  // eslint-disable-next-line no-undef
+  mockAxios.get.mockImplementationOnce(() => Promise.reject());
+};
+
+const mockFetchGenres = (success = true) => {
+  if (success) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     mockAxios.get.mockResolvedValueOnce({ data: genresList });
     return;
   }
@@ -65,7 +76,7 @@ describe('Fetch genres async action', () => {
     const dispatch = jest.fn();
     const getState = jest.fn(() => initialState);
 
-    mockGetMovies();
+    mockFetchGenres();
 
     await fetchGenres()(dispatch, getState, undefined);
     expect(dispatch).toBeCalledWith(moviesActions.fetchGenresRequest());
@@ -91,7 +102,7 @@ describe('Fetch genres async action', () => {
     const dispatch = jest.fn();
     const getState = jest.fn(() => initialState);
 
-    mockGetMovies(false);
+    mockFetchGenres(false);
 
     await fetchGenres()(dispatch, getState, undefined);
     expect(dispatch).toBeCalledWith(moviesActions.fetchGenresRequest());

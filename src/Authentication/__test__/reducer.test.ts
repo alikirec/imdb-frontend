@@ -3,15 +3,8 @@ import reducer, { initialState } from '../reducer';
 
 describe('authentication reducer', () => {
   it('should handle login request', () => {
-    expect(
-      reducer(
-        initialState,
-        authenticationActions.loginRequest({
-          username: 'asd',
-          password: 'asd'
-        })
-      )
-    ).toEqual({
+    expect(reducer(initialState, authenticationActions.loginRequest())).toEqual({
+      ...initialState,
       loggingIn: true
     });
   });
@@ -29,7 +22,7 @@ describe('authentication reducer', () => {
         })
       )
     ).toEqual({
-      loggingIn: false,
+      ...initialState,
       user: {
         id: '123',
         username: 'asdf',
@@ -47,6 +40,7 @@ describe('authentication reducer', () => {
         })
       )
     ).toEqual({
+      ...initialState,
       loggingIn: false
     });
   });

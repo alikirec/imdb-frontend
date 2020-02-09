@@ -1,5 +1,3 @@
-import { Movie } from '../types';
-
 export const moviesList = {
   page: 1,
   totalResults: 100,
