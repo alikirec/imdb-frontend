@@ -24,7 +24,8 @@ export const getMovies = ({ filter = 'popular', page }: FetchMoviesPayload) => {
   });
 };
 
-export const getGenres = () => axios.get<FetchGenresSuccessPayload>('/genre/movie/list');
+export const getGenres = () =>
+  axios.get<FetchGenresSuccessPayload>('/genre/movie/list');
 
 export const getMovie = (id: number) => axios.get<MovieInfo>(`/movie/${id}`);
 
