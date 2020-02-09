@@ -45,7 +45,11 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "pre-commit": [ "lint:fix" ],
+  "husky": {
+    "hooks": {
+      "pre-push": "npm lint:fix"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -88,6 +92,7 @@
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
     "jest": "^24.9.0",
     "npm": "^6.13.4",
     "precommit": "^1.2.2",
