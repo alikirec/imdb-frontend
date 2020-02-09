@@ -41,12 +41,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint:fix": "eslint './src/**/*.{ts,tsx}'",
-    "pretty": "prettier './src/**/*.{ts,tsx}'",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "pre-commit": [ "lint", "pretty" ],
+  "pre-commit": [ "lint:fix" ],
   "eslintConfig": {
     "extends": "react-app"
   },
