@@ -17,6 +17,7 @@ export const MOVIE_DB_IMAGE_URL = {
 
 export const getMovies = ({ filter = 'popular', page }: FetchMoviesPayload) => {
   const filterSnakeCase = camelToSnake(filter);
+
   return axios.get<FetchMoviesSuccessPayload>(`/movie/${filterSnakeCase}`, {
     params: {
       page
