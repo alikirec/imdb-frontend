@@ -73,7 +73,12 @@ const MovieOverview: React.FunctionComponent<Props> = ({
       <H1 color='brandYellow'>{movieInfo.title}</H1>
       <H3 color='common.white'>{movieInfo.tagline}</H3>
       {isInWatchList ? (
-        <Button onClick={removeFromWatchList} name={movieInfo.id.toString()} variant='secondary' mb={3}>
+        <Button
+          onClick={removeFromWatchList}
+          name={movieInfo.id.toString()}
+          variant='secondary'
+          mb={3}
+        >
           Remove from watchlist
         </Button>
       ) : (

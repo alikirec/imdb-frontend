@@ -24,13 +24,12 @@ export const getMovies = ({ filter = 'popular', page }: FetchMoviesPayload) => {
   });
 };
 
-export const getGenres = () =>
-  axios.get<FetchGenresSuccessPayload>('/genre/movie/list');
+export const getGenres = () => axios.get<FetchGenresSuccessPayload>('/genre/movie/list');
 
-export const getMovie = (id: number) =>
-  axios.get<MovieInfo>(`/movie/${id}`);
+export const getMovie = (id: number) => axios.get<MovieInfo>(`/movie/${id}`);
 
-export const getCredits = (id: number) => axios.get<{ id: number; cast: Actor[] }>(`/movie/${id}/credits`);
+export const getCredits = (id: number) =>
+  axios.get<{ id: number; cast: Actor[] }>(`/movie/${id}/credits`);
 
 export const getImages = (id: number) =>
   axios.get<{ id: number; backdrops: { filePath: string }[] }>(`/movie/${id}/images`, {

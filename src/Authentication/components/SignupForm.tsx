@@ -7,7 +7,7 @@ import { SignupFormProps, SignupFormValues } from '../types';
 import Button from '../../UiElements/Button/Buttons';
 import { FormContainer, StyledForm } from './FormElements';
 import FormikInput from './FormikInput';
-import {Text, TextType} from '../../UiElements/Typography/Text';
+import { Text, TextType } from '../../UiElements/Typography/Text';
 import Box from '../../UiElements/Layout/Box';
 
 const initialValues: SignupFormValues = {
