@@ -1,10 +1,9 @@
-version: 2.1
+version: 2
 jobs:
   build:
-    - image: cypress/base:12.14.0
-      environment:
-        ## this enables colors in the output
-        TERM: xterm
+    docker:
+      # specify the version you desire here
+      - image: cypress/base:12.14.0
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -30,7 +29,6 @@ jobs:
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
-
       - save_cache:
           paths:
             - node_modules
@@ -42,7 +40,7 @@ jobs:
 
       - run:
           name: e2e Tests
-          command: yarm test:e2e
+          command: yarn test:e2e
 
       # run tests!
       - run:
