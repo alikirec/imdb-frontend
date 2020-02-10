@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
 jobs:
@@ -41,8 +41,6 @@ jobs:
           name: Lint
           command: yarn lint:fix
 
-      - cypress/run
-
       # run tests!
       - run:
           name: Run Test & Coverage
@@ -50,3 +48,6 @@ jobs:
             ./cc-test-reporter before-build
             yarn test -- --coverage
             ./cc-test-reporter after-build --exit-code $?
+
+  - cypress/run:
+      yarn: true
