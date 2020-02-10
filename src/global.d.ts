@@ -67,5 +67,5 @@ declare module 'react-notifications-component' {
   };
 
   export const store: Store;
-  export default class ReactNotification extends React.Component<{}, {}> {};
+  export default class ReactNotification extends React.Component<{}, {}> {}
 }
