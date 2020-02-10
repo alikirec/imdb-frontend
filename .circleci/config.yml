@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  cypress: cypress-io/cypress@1
 jobs:
   build:
     docker:
@@ -39,14 +41,7 @@ jobs:
           name: Lint
           command: yarn lint:fix
 
-      - run:
-          name: e2e tests
-          command: yarn test:e2e
-
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
+      - cypress/run
 
       # run tests!
       - run:
