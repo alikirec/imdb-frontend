@@ -51,6 +51,11 @@ describe('Add to watch list async action', () => {
   it('should add a movie to watch list', async () => {
     const getState = jest.fn().mockReturnValue({
       ...initialState,
+      authentication: {
+        user: {
+          id: '123'
+        }
+      },
       movieDetails: {
         movieInfo: exampleMovieInfo,
         actors: [exampleActor],
@@ -77,6 +82,11 @@ describe('Add to watch list async action', () => {
   it('should notify the user and report to sentry when request fails', async () => {
     const getState = jest.fn().mockReturnValue({
       ...initialState,
+      authentication: {
+        user: {
+          id: '123'
+        }
+      },
       movieDetails: {
         movieInfo: exampleMovieInfo,
         actors: [exampleActor],
