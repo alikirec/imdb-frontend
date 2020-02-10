@@ -4,7 +4,7 @@ import { exampleMovieInfo, exampleActor } from './fixtures';
 
 describe('Movie details reducer', () => {
   it('should handle fetch movie details request', () => {
-    expect(reducer(initialState, movieDetailsActions.fetchMovieDetailsRequest({ id: 1 }))).toEqual({
+    expect(reducer(initialState, movieDetailsActions.fetchMovieDetailsRequest())).toEqual({
       ...initialState,
       fetchingMovie: true
     });

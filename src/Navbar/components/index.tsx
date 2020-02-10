@@ -65,7 +65,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({ open, setOpen }) => {
   useOnClickOutside(node, () => setOpen(false));
 
   return (
-    <Nav>
+    <Nav data-cy='navbar'>
       <Box display='flex' flexShrink={0} width='auto'>
         <Link aria-current='page' to='/'>
           <Icon className='material-icons' aria-hidden>

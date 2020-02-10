@@ -1,5 +1,3 @@
-import { RootState } from 'StoreTypes';
-
 import { initialState } from '../../store/rootReducer';
 import { axiosMovies } from '../../utils/axios';
 import { fetchMovieDetails, movieDetailsActions } from '../actions';
@@ -48,7 +46,7 @@ describe('Fetch movie details async action', () => {
     mockMovieImages();
 
     await fetchMovieDetails(123)(dispatch, getState, undefined);
-    expect(dispatch).toBeCalledWith(movieDetailsActions.fetchMovieDetailsRequest({ id: 123 }));
+    expect(dispatch).toBeCalledWith(movieDetailsActions.fetchMovieDetailsRequest());
     expect(mockAxios.get).toBeCalledWith('/movie/123');
     expect(mockAxios.get).toBeCalledWith('/movie/123/credits');
     expect(mockAxios.get).toBeCalledWith('/movie/123/images', { params: { language: 'null' } });

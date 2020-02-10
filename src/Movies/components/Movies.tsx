@@ -13,7 +13,7 @@ const Movies: React.FunctionComponent<MoviesProps> = (props) => {
 
   return (
     <>
-      <Grid mb={7}>
+      <Grid mb={7} data-cy='moviesGrid'>
         {props.movies.map((movie) => (
           <GridItem key={movie.id}>
             <MovieListCard movie={movie} genres={props.genres} />

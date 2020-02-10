@@ -1,15 +1,11 @@
-import { AxiosResponse } from 'axios';
 import { push } from 'connected-react-router';
+import { FormikHelpers } from 'formik';
 import { action } from 'typesafe-actions';
 import { ThunkResult } from 'StoreTypes';
 
-import { getUser, apiLogin, apiSignup, apiLogout, apiRemoveMovie } from '../api/user';
-import { LoginFormValues, SignupFormValues, User } from './types';
-import { FormikHelpers } from 'formik';
+import { getUser, apiLogin, apiSignup, apiLogout } from '../api/user';
 import { WatchListItem } from '../Movies/types';
-import { getWatchListIds } from './selectors';
-import { getWatchList } from '../Movies/selectors';
-import React from 'react';
+import { LoginFormValues, SignupFormValues, User } from './types';
 
 export enum authenticationActionTypes {
   LOGIN_REQUEST = 'authentication/LOGIN_REQUEST',
@@ -78,7 +74,7 @@ export const checkUser = (): ThunkResult<void> => async (dispatch, _) => {
     const { data } = await getUser();
     dispatch(authenticationActions.loginSuccess({ user: data }));
   } catch (e) {
-    //
+    console.log(JSON.stringify(e));
   }
 };
 
@@ -111,23 +107,4 @@ export const logout = (): ThunkResult<any> => async (dispatch, getState) => {
   } catch (e) {
     //
   }
-};
-
-export const removeFromWatchList = (
-  e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-): ThunkResult<void> => async (dispatch, getState) => {
-  e.preventDefault();
-  const idToRemove = parseInt(e.currentTarget.name);
-  const state = getState();
-  const ids = getWatchListIds(state);
-  const watchList = getWatchList(state);
-
-  if (!idToRemove || !ids || watchList.length === 0) {
-    return;
-  }
-
-  const { data } = (await apiRemoveMovie(idToRemove)) as AxiosResponse<{
-    watchList: WatchListItem[];
-  }>;
-  dispatch(authenticationActions.setWatchList(data.watchList));
 };

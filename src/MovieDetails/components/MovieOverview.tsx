@@ -67,7 +67,7 @@ const MovieOverview: React.FunctionComponent<Props> = ({
   addToWatchList,
   removeFromWatchList
 }) => (
-  <OverviewGrid>
+  <OverviewGrid data-cy='movieOverview'>
     <BackdropImage src={`${MOVIE_DB_IMAGE_URL.medium}${movieInfo.posterPath}`} />
     <Box bg='rgba(0, 0, 0, 0.5)' gridArea='info' px={4} py={3} position='relative'>
       <H1 color='brandYellow'>{movieInfo.title}</H1>
@@ -82,7 +82,13 @@ const MovieOverview: React.FunctionComponent<Props> = ({
           Remove from watchlist
         </Button>
       ) : (
-        <Button onClick={addToWatchList} name={movieInfo.id.toString()} variant='primary' mb={3}>
+        <Button
+          onClick={addToWatchList}
+          name={movieInfo.id.toString()}
+          variant='primary'
+          mb={3}
+          data-cy='addToWatchList'
+        >
           Add to watch list
         </Button>
       )}

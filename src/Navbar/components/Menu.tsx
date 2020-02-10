@@ -88,7 +88,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ open, isAuthenticated, logou
               My list
             </Button>
           </Link>
-          <Button variant='secondary' buttonType='outlined' onClick={logout}>
+          <Button variant='secondary' buttonType='outlined' onClick={logout} data-cy='logout'>
             Logout
           </Button>
         </>

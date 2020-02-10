@@ -3,7 +3,6 @@ import { axiosMovies } from '../../utils/axios';
 import * as actions from '../actions';
 import { genresList, moviesList } from './fixtures';
 
-jest.mock('axios');
 const mockAxios = axiosMovies as jest.Mocked<typeof axiosMovies>;
 
 const { fetchMovies, moviesActions, fetchGenres, onPageChange, onFilterChange } = actions;

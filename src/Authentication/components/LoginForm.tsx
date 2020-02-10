@@ -27,7 +27,7 @@ const loginSchema = yup.object().shape<LoginFormValues>({
 });
 
 const LoginForm: React.FunctionComponent<LoginFormProps> = ({ onSubmit, goToSignup }) => (
-  <FormContainer>
+  <FormContainer data-cy='loginForm'>
     <H1>Login</H1>
     <Formik
       validationSchema={loginSchema}
@@ -37,8 +37,14 @@ const LoginForm: React.FunctionComponent<LoginFormProps> = ({ onSubmit, goToSign
     >
       {({ handleSubmit, isSubmitting, isValid }) => (
         <StyledForm onSubmit={handleSubmit}>
-          <Field name='username' label='Username' component={FormikInput} />
-          <Field name='password' label='Password' component={FormikInput} type='password' />
+          <Field name='username' label='Username' component={FormikInput} data-cy='username' />
+          <Field
+            name='password'
+            label='Password'
+            component={FormikInput}
+            type='password'
+            data-cy='password'
+          />
           <Button
             variant='secondary'
             disabled={isSubmitting || !isValid}
@@ -46,6 +52,7 @@ const LoginForm: React.FunctionComponent<LoginFormProps> = ({ onSubmit, goToSign
             mb={3}
             width={100}
             loading={isSubmitting}
+            data-cy='submit'
           >
             Login
           </Button>

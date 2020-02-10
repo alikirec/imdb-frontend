@@ -30,7 +30,7 @@ const Container = styled.div`
 `;
 
 const Actors: React.FunctionComponent<{ actors: Actor[] }> = ({ actors }) => (
-  <Box bg='rgba(0, 0, 0, 0.5)' mt={7} px={{ _: 2, md: 5 }} py={5}>
+  <Box bg='rgba(0, 0, 0, 0.5)' mt={7} px={{ _: 2, md: 5 }} py={5} data-cy='movieActors'>
     <H2 color='grey.100'>Actors</H2>
     <Container>
       {actors.slice(0, 6).map((actor) => (

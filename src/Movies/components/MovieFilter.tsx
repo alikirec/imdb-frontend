@@ -47,7 +47,7 @@ const ButtonGroup = styled(Box)`
 `;
 
 const MovieFilter: React.FunctionComponent<MovieFilterProps> = (props) => (
-  <ButtonGroup>
+  <ButtonGroup data-cy='movieFilter'>
     {filters.map(({ name, label }) => (
       <Button
         className={props.filter === name ? 'active' : ''}

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { RootAction, RootState } from 'StoreTypes';
 
-import { removeFromWatchList } from '../../Authentication/actions';
+import { removeFromWatchList } from '../../WatchList/actions';
 import { getWatchList } from '../selectors';
 import { WatchListStateProps, WatchListDispatchProps } from '../types';
 import WatchList from '../components/WatchList';

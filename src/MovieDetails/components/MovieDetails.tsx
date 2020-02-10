@@ -40,7 +40,7 @@ const MovieDetails: React.FunctionComponent<MovieDetailsProps &
       />
       {actors && <Actors actors={actors} />}
       {images && images.length && (
-        <Box bg='rgba(0, 0, 0, 0.5)' mt={7} px={{ _: 0, sm: 2, md: 5 }} py={4}>
+        <Box bg='rgba(0, 0, 0, 0.5)' mt={7} px={{ _: 0, sm: 2, md: 5 }} py={4} data-cy='movieGallery'>
           <H2 color='grey.100'>Gallery</H2>
           <ImageGallery
             items={images.map((img) => ({

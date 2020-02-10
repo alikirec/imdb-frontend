@@ -2,12 +2,7 @@ import { action } from 'typesafe-actions';
 import { ThunkResult } from 'StoreTypes';
 
 import { getGenres, getMovies } from '../api/movies';
-import { apiRemoveMovie } from '../api/user';
-import { authenticationActions } from '../Authentication/actions';
-import { getWatchListIds } from '../Authentication/selectors';
-import { getWatchList } from './selectors';
-import { Filter, Genre, Movie, WatchListItem } from './types';
-import { AxiosResponse } from 'axios';
+import { Filter, Genre, Movie } from './types';
 
 export enum moviesActionTypes {
   FETCH_MOVIES_REQUEST = 'movies/FETCH_MOVIES_REQUEST',
